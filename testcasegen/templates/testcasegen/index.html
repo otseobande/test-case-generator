@@ -1,0 +1,74 @@
+{% extends "./base.html"%}
+{% load static %}
+
+{% block content%}
+{% verbatim %}
+<div class="row">
+	<div class="col-md-8 col-md-offset-2" v-if="!fileUploaded">
+		<alert class="card" :show.sync="fileError" type="danger" duration="6000" dismissable>
+			<strong><span class="fa fa-ban"></span> Error: </strong>
+			File is not valid, please upload an XMI file
+		</alert>
+		<div class="panel panel-primary card">
+			<div class="panel-heading">
+				<strong>Upload XMI file</strong>
+			</div>
+			<div class="panel-body">
+				<form id="upload-form" class="form" method="post" enctype="multipart/form-data" @change.prevent="uploadFile">
+					<label for="file-upload" class="btn file-upload">
+						Process XMI File
+						<input type="file" id="file-upload" class="hidden">
+					</label>
+					<div v-if="processing">
+						<img src="/static/testcasegen/img/Rolling.gif">
+						Processing
+					</div>
+				</form>
+				{{fileName}}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12" v-else>
+		<div class="panel panel-primary card">
+			<div class="panel-heading">Test scenerio</div>
+			<div class="panel-body">
+				<p>{{path}}</p>
+			</div>
+		</div>
+		<div class="panel panel-primary card">
+			<div class="panel-heading">
+				<strong>States Table for "{{fileName}}"</strong>
+				<form id="upload-form" class="form pull-right" method="post" enctype="multipart/form-data" >
+					<label for="file-upload" class="btn file-upload">
+						Process another XMI
+						<input type="file" @change.prevent="uploadFile" id="file-upload" class="hidden">
+					</label>
+				</form>
+			</div>
+			<div class="panel-body">
+				<table class="table table-condensed">
+					<thead>
+						<th>name</th>
+						<th>kind</th>
+						<th>Type</th>
+						<th>State Id</th>
+						<th>Incoming Id(s)</th>
+						<th>Outgoing Id(s)</th>
+					</thead> 
+					<tbody>
+						<tr v-for="state in umlStates">
+							<td>{{state.name | trim}}</td>
+							<td>{{state.kind | trim}}</td>
+							<td>{{state.type}}</td>
+							<td>{{state.id | trim}}</td>
+							<td><p v-for="i in state.incoming">{{i}}</p></td>
+							<td><p v-for="i in state.outgoing">{{i}}</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endverbatim %}
+{% endblock %}

@@ -1,0 +1,62 @@
+body{
+	background-color: #e2e1e0;
+	font-family: "sans serif";
+}
+.navbar{
+	background-color: #005089;
+	border-radius: 0px;
+	 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.navbar-brand{
+	color: white;
+}
+
+.navbar-brand:hover{
+	color: #e2e1e0;
+}
+
+.panel{
+	border-radius: 2px;
+	border-color:  transparent;
+	border-width: 0px;
+
+}
+
+.panel > .panel-heading{
+	background-color:  #005089;
+	border-color:  #005089;
+	height: 50px;
+}
+.file-upload{
+	border-radius: 2px;
+	background-color: #9a2e2e;
+	border-color: transparent;
+	color: white;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+
+.file-upload:hover{
+	background-color:  #005089;
+	border-color:  #005089;
+	color: white;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+table{
+	table-layout: fixed;
+    word-wrap: break-word;
+}
+.card{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.row{
+    transition: all .40s ease;
+}
+.row.v-enter, .row.v-leave {
+    height: 0;
+    padding: 0 10px;
+    opacity: 0;
+}

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Test Case Gen{% endblock %}</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'testcasegen/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'testcasegen/css/font-awesome.min.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'testcasegen/css/style.css' %}">
+	</head>
+	<body>
+		<div id="app">
+			{% include "./navbar.html" %}
+			<div class="container">
+				{% block content%}{% endblock %}
+			</div>
+			<script src="{% static 'testcasegen/js/vue.min.js' %}"></script>
+			<script src="{% static 'testcasegen/js/vue-strap.min.js'%}"></script>
+			<script src="{% static 'testcasegen/js/axios.min.js' %}"></script>
+			<script src="{% static 'testcasegen/js/app.js' %}"></script>
+		</div>
+	</body>
+</html>
