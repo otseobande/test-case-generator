@@ -60,3 +60,7 @@ table{
     padding: 0 10px;
     opacity: 0;
 }
+
+[v-cloak]{
+	display: none;
+}
